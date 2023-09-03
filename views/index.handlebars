@@ -1,0 +1,36 @@
+<h1>Download YouTube video and convert it to MP3</h1>
+
+<form action="/" method="post">
+    <input
+            type="text"
+            class="form-control mb-2"
+            placeholder="Enter the code of YouTube video here"
+            required
+            name="videoId"
+            value="{{videoId}}"
+    />
+
+    <button type="submit" class="btn btn-primary">Download and Convert</button>
+</form>
+
+{{#if output}}
+    Output
+    <pre>
+        {{output}}
+    </pre>
+{{/if}}
+
+{{#if error}}
+    Error
+    <pre>
+        {{error}}
+    </pre>
+{{/if}}
+
+{{#if images}}
+    <div class="row">
+        {{#each images}}
+            <img src="{{ this.url }}" alt="" class="img-fluid rounded">
+        {{/each}}
+    </div>
+{{/if}}

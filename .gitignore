@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+config/developement.json
+config/production.json
+mp3/*.mp3
+mp3/*.jpg
