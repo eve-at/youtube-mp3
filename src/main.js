@@ -1,8 +1,10 @@
 import express from 'express'
 import { engine } from "express-handlebars"
 import { ydl } from './ydl.js'
+import config from "config"
 
 const app = express()
+const PORT = config.get('PORT') || 5000
 
 app.engine('handlebars', engine())
 
@@ -21,18 +23,11 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
     const videoId = req.body.videoId
-
     viewData.videoId = videoId;
 
     try {
-
         const output = await ydl.downdloadMp3(videoId)
-
         viewData.output = JSON.stringify(output, null, 2)
-
-        //console.log(response.data.data)
-
-        //viewData.images = response.data.data
         res.render('index', viewData)
     } catch (e) {
         viewData.error = e.message
@@ -40,4 +35,4 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.listen(5000, () => console.log("Server started ..."))
+app.listen(PORT, () => console.log(`Server started on port ${PORT}: http://localhost:${PORT}`))

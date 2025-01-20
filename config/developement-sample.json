@@ -1,4 +1,5 @@
 {
+  "PORT": 5000,
   "MP3_FOLDER": "mp3",
   "FFMPEG_LOCATION": "Filepath to ffmpeg-master-latest-win64-gpl-shared\\bin\\ folder"
 }
